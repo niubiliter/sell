@@ -21,4 +21,12 @@ public class ProductCategoryRepositoryTest {
         ProductCategory productCategory=productCategoryRepository.findOne(1);
         System.err.println(productCategory);
     }
+
+    @Test
+    public void saveTest(){
+        ProductCategory productCategory=new ProductCategory();
+        productCategory.setCategoryName("男生最爱");
+        productCategory.setCategoryType(3);
+        productCategoryRepository.save(productCategory);
+    }
 }
