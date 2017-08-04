@@ -1,12 +1,15 @@
 package com.huangliusong.repository;
 
-import lombok.Data;
 
-import javax.persistence.Entity;
+import com.huangliusong.dataobject.ProductInfo;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
 
 /**
  * Created by huangliusong on 2017/8/4.
  */
-public class ProductInfoRepository {
+public interface ProductInfoRepository extends JpaRepository<ProductInfo,String> {
+    List<ProductInfo> findByProductStatus(Integer productStatus);
 
 }

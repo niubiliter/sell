@@ -23,25 +23,12 @@ public class ProductInfo {
     //库存
     private Integer productStock;
     //商品的描述
-    private String product_Description;
+    private String productDescription;
     //商品的小图
-    private String product_Icon;
+    private String productIcon;
     //商品的状态 正常为0 下架为1
-    private Integer product_Status;
-    //类目编号
+    private Integer productStatus;
+    //类目标号
     private Integer categoryType;
 
-    @Override
-    public String toString() {
-        return "ProductInfo{" +
-                "productId='" + productId + '\'' +
-                ", productName='" + productName + '\'' +
-                ", productPrice=" + productPrice +
-                ", productStock=" + productStock +
-                ", product_Description='" + product_Description + '\'' +
-                ", product_Icon='" + product_Icon + '\'' +
-                ", product_Status=" + product_Status +
-                ", categoryType=" + categoryType +
-                '}';
-    }
 }
