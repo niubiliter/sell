@@ -40,4 +40,9 @@ public class ProductInfoRepositoryTest {
         Assert.assertNotEquals(0, list.size());
     }
 
+    @Test
+    public void findOneTest(){
+        ProductInfo productInfo=repository.findOne("123456");
+        System.err.print(productInfo.toString());
+    }
 }
