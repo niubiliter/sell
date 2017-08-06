@@ -1,12 +1,14 @@
 package com.huangliusong.VO;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Data;
 
 import java.math.BigDecimal;
 
 /**
  * Created by huangliusong on 2017/8/6.
  */
+@Data
 public class ProductInfoVO {
     @JsonProperty("id")
     private String productId;
