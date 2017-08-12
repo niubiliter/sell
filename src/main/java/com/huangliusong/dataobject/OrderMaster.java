@@ -31,9 +31,10 @@ public class OrderMaster {
     //订单总金额
     private BigDecimal orderAmount;
     //订单状态
-    private Integer orderStatues= OrderStatusEnum.NEW.getCode();
+    private Integer orderStatus= OrderStatusEnum.NEW.getCode();
     //支付状态 默认未支付
     private Integer payStatus= PayStatusEnum.WAIT.getCode();
+
     //创建时间
     private Date createTime;
     //更新时间
