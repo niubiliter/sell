@@ -4,6 +4,7 @@ import lombok.Getter;
 
 /**
  * Created by huangliusong on 2017/8/13.
+ * 异常码
  */
 @Getter
 public enum ResultEnum {
