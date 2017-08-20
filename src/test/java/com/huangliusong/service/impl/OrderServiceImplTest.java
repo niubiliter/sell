@@ -3,6 +3,7 @@ package com.huangliusong.service.impl;
 import com.huangliusong.dataobject.OrderDetail;
 import com.huangliusong.dto.OrderDTO;
 import com.huangliusong.enums.OrderStatusEnum;
+import com.huangliusong.enums.PayStatusEnum;
 import com.huangliusong.repository.OrderDetailRepository;
 import lombok.extern.slf4j.Slf4j;
 
@@ -91,7 +92,9 @@ public class OrderServiceImplTest {
 
     @Test
     public void paid() throws Exception {
-
+        OrderDTO orderDTO=orderService.findOne(ORDER_ID);
+        OrderDTO result=orderService.paid(orderDTO);
+        Assert.assertEquals(PayStatusEnum.SUCCESS.getCode(),result.getPayStatus());
     }
 
 
