@@ -6,6 +6,7 @@ import com.huangliusong.dto.OrderDTO;
 import com.huangliusong.enums.ResultEnum;
 import com.huangliusong.exception.SellException;
 import com.huangliusong.form.OrderForm;
+import com.huangliusong.service.BuyerService;
 import com.huangliusong.service.OrderService;
 import com.huangliusong.utils.ResultVOUtil;
 import jdk.nashorn.internal.objects.annotations.Getter;
@@ -19,7 +20,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
-import javax.xml.ws.Action;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -33,6 +33,8 @@ import java.util.Map;
 public class BuyerOrderController {
     @Autowired
     private OrderService orderService;
+    @Autowired
+    private BuyerService buyerService;
     //创建订单
     @PostMapping("/create")
     public ResultV0<Map<String,String>> create(@Valid OrderForm orderForm, BindingResult bindingResult){
@@ -68,10 +70,18 @@ public class BuyerOrderController {
         //
         return ResultVOUtil.success(orderDTOPage.getContent());
         }
-    //订单详情
-
-    //取消订单
-
+        //订单详情
+        @GetMapping("/detail")
+        public ResultV0<OrderDTO> detail(@RequestParam("openId")String openid,@RequestParam("orderId")String orderId){
+           OrderDTO orderDTO=buyerService.findOrderOne(openid,orderId);
+            return ResultVOUtil.success(orderDTO );
+        }
+        //取消订单
+        @PostMapping("/cancel")
+        public ResultV0 cancel(@RequestParam("openId")String openid,@RequestParam("orderId")String orderId){
+            buyerService.cancelOrder(openid,orderId);
+            return ResultVOUtil.success();
+        }
 
 
 }
